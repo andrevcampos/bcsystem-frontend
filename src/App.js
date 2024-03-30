@@ -15,7 +15,7 @@ function App() {
   }, [])
 
   return (
-    <div>App</div>
+    <div>App2</div>
   )
 }
 
