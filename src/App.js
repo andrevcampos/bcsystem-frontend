@@ -2,20 +2,28 @@ import React, {useEffect, useState} from 'react'
 
 function App() {
 
-  // const [backendData, setBackendData] = useState([{}])
+  const [backendData, setBackendData] = useState([{}])
 
-  // useEffect(()=> {
-  //   fetch("/api/v1/user/test").then(
-  //     response => response.json()
-  //   ).then(
-  //     data => {
-  //       setBackendData(data)
-  //     }
-  //   )
-  // }, [])
+  useEffect(() => {
+    fetch("http://localhost:5000/api/v1/user/test").then(
+      response => response.json()
+    ).then(
+      data => {
+        setBackendData(data)
+      }
+    )
+  }, [])
 
   return (
-    <div>App2</div>
+    <div>
+      {(typeof backendData.users === 'undefined') ? (
+        <p>loading...</p>
+      ) : (
+        backendData.users.map((user, i) => (
+          <p key={i}>{user}</p>
+        ))
+      )}
+    </div>
   )
 }
 
