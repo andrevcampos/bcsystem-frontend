@@ -5,7 +5,7 @@ function App() {
   const [backendData, setBackendData] = useState([{}])
 
   useEffect(() => {
-    fetch("https://bcsystem.app/api/v1/user/test").then(
+    fetch("http://api.bcsystem.app/api/v1/user/test").then(
       response => response.json()
     ).then(
       data => {
